@@ -174,6 +174,11 @@ build_window_format() {
       local show_left_separator="#[fg=$color,bg=$thm_bg]$window_left_separator"
     fi
 
+    if [ "$window_left_separator_inverse" = "yes" ]
+    then
+      local show_left_separator="#[fg=$thm_bg,bg=$background,nobold,nounderscore,noitalics]$window_left_separator"
+    fi
+
   fi
 
   local final_window_format
@@ -360,6 +365,7 @@ main() {
   local window_left_separator=$(get_tmux_option "@catppuccin_window_left_separator" "█")
   local window_right_separator=$(get_tmux_option "@catppuccin_window_right_separator" "█")
   local window_middle_separator=$(get_tmux_option "@catppuccin_window_middle_separator" "█ ")
+  local window_left_separator_inverse=$(get_tmux_option "@catppuccin_window_left_separator_inverse" "no")
   local window_number_position=$(get_tmux_option "@catppuccin_window_number_position" "left") # right, left
   local window_status_enable=$(get_tmux_option "@catppuccin_window_status_enable" "no") # right, left
 
