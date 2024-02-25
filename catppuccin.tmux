@@ -362,11 +362,11 @@ main() {
 
   # --------=== Statusline
 
-  local window_left_separator=$(get_tmux_option "@catppuccin_window_left_separator" "█")
-  local window_right_separator=$(get_tmux_option "@catppuccin_window_right_separator" "█")
-  local window_middle_separator=$(get_tmux_option "@catppuccin_window_middle_separator" "█ ")
-  local window_left_separator_inverse=$(get_tmux_option "@catppuccin_window_left_separator_inverse" "no")
-  local window_number_position=$(get_tmux_option "@catppuccin_window_number_position" "left") # right, left
+  local window_left_separator=$(get_tmux_option "@catppuccin_window_left_separator" " ")
+  local window_right_separator=$(get_tmux_option "@catppuccin_window_right_separator"  "")
+  local window_middle_separator=$(get_tmux_option "@catppuccin_window_middle_separator" " █")
+  local window_left_separator_inverse=$(get_tmux_option "@catppuccin_window_left_separator_inverse" "yes")
+  local window_number_position=$(get_tmux_option "@catppuccin_window_number_position" "right") # right, left
   local window_status_enable=$(get_tmux_option "@catppuccin_window_status_enable" "no") # right, left
 
   local window_format=$(load_modules "window_default_format" "$modules_custom_path" "$modules_window_path")
@@ -376,10 +376,10 @@ main() {
   setw window-status-current-format "$window_current_format"
 
   local status_left_separator=$(get_tmux_option "@catppuccin_status_left_separator" "")
-  local status_right_separator=$(get_tmux_option "@catppuccin_status_right_separator" "█")
-  local status_right_separator_inverse=$(get_tmux_option "@catppuccin_status_right_separator_inverse" "no")
-  local status_connect_separator=$(get_tmux_option "@catppuccin_status_connect_separator" "yes")
-  local status_fill=$(get_tmux_option "@catppuccin_status_fill" "icon")
+  local status_right_separator=$(get_tmux_option "@catppuccin_status_right_separator" " ")
+  local status_right_separator_inverse=$(get_tmux_option "@catppuccin_status_right_separator_inverse" "yes")
+  local status_connect_separator=$(get_tmux_option "@catppuccin_status_connect_separator" "no")
+  local status_fill=$(get_tmux_option "@catppuccin_status_fill" "all")
 
   local status_modules_right=$(get_tmux_option "@catppuccin_status_modules_right" "application session")
   local loaded_modules_right=$(load_modules "$status_modules_right" "$modules_custom_path" "$modules_status_path")
